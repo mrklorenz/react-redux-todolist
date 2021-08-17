@@ -32,8 +32,11 @@ const todosSlice = createSlice({
             todo.done = !todo.done;
         },
         DeleteTodo(state, action){
-            const todo = state.entities[action.payload];
-            todoAdapter.removeOne(state, action.uuid);
+            todoAdapter.removeOne(state, {
+                id: uuid(),
+                text: action.payload,
+                done: true
+            });
         }
     }
 })
