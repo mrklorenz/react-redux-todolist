@@ -15,7 +15,7 @@ function TodoItem(props) {
     }
 
     return (
-        <div onClick={handleToggle}>
+        <div onClick={handleToggle} className="toggleDiv">
             {todo.text}
             <span className="removeSpan">x</span>
         </div>

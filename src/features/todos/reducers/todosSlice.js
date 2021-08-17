@@ -9,7 +9,7 @@ const initialState = todoAdapter.getInitialState({
     entities : {
         1 : {
             id : "1",
-            text: "test",
+            text: "Update homework.",
             done : false
         }
     }
@@ -30,8 +30,7 @@ const todosSlice = createSlice({
         ToggleTodo(state, action) {
             const todo = state.entities[action.payload];
             todo.done = !todo.done;
-            return state;
-        }
+        },
     }
 })
 
