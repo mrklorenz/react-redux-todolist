@@ -2,6 +2,7 @@ import React from 'react';
 import {selectTodoItemId} from '../reducers/todosSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {ToggleTodo} from '../reducers/todosSlice';
+import "../styles/ToDoItem.css";
 
 function TodoItem(props) {
 
@@ -16,6 +17,7 @@ function TodoItem(props) {
     return (
         <div onClick={handleToggle}>
             {todo.text}
+            <span className="removeSpan">x</span>
         </div>
     );
 }
