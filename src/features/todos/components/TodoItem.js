@@ -1,7 +1,7 @@
 import React from 'react';
 import {selectTodoItemId} from '../reducers/todosSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import {ToggleTodo} from '../reducers/todosSlice';
+import {ToggleTodo, DeleteTodo} from '../reducers/todosSlice';
 import "../styles/ToDoItem.css";
 
 function TodoItem(props) {
@@ -14,10 +14,14 @@ function TodoItem(props) {
         dispatch(ToggleTodo(event.target.value));
     }
 
+    function handleDeleteTodo(event){
+        dispatch(DeleteTodo(event.target.value))
+    }
+
     return (
         <div onClick={handleToggle} className="toggleDiv">
             {todo.text}
-            <span className="removeSpan">x</span>
+            <span className="removeSpan" onClick={handleDeleteTodo}>x</span>
         </div>
     );
 }
