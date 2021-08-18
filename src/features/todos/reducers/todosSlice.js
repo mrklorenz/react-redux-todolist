@@ -31,12 +31,9 @@ const todosSlice = createSlice({
             const todo = state.entities[action.payload];
             todo.done = !todo.done;
         },
+        //use key
         DeleteTodo(state, action){
-            todoAdapter.removeOne(state, {
-                id: uuid(),
-                text: action.payload,
-                done: true
-            });
+            todoAdapter.removeOne(state, action.payload);
         }
     }
 })
