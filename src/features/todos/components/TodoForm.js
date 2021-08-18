@@ -5,9 +5,7 @@ import "../styles/ToDoForm.css";
 
 
 function TodoForm(props) {
-
     const[text, setText] = useState("");
-
     const dispatch = useDispatch();
 
     function handleChange(event){
@@ -20,8 +18,8 @@ function TodoForm(props) {
     }
 
     return (
-        <div className="toDoFormDiv">
-            <input type="text" placeholder="Input what to do here!" value={text} onChange={handleChange}/>
+        <div>
+            <input className="toDoFormDiv" type="text" placeholder="Input what to do here!" value={text} onChange={handleChange}/>
             <button onClick={handleAdd}>Add</button>
         </div>
     );
