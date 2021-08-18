@@ -5,19 +5,19 @@ import DoneList from './features/todos/components/DoneList';
 import NotFoundPage from './features/todos/components/NotFoundPage';
 import { Breadcrumb } from 'antd';
 import { HomeOutlined, DatabaseOutlined, FileDoneOutlined } from '@ant-design/icons';
+import HomePage from './features/todos/components/HomePage';
 
 function App() {
   return (
     <div className="App">
         <Breadcrumb>
-          <Breadcrumb.Item href="">
-            <HomeOutlined /> HomePage
-          </Breadcrumb.Item>
           <BrowserRouter>
-            <Link to="/"><Breadcrumb.Item><DatabaseOutlined/> To do List Page</Breadcrumb.Item></Link>
+            <Link to="/"><Breadcrumb.Item><HomeOutlined /> HomePage</Breadcrumb.Item></Link>
+            <Link to="/todo"><Breadcrumb.Item><DatabaseOutlined/> To do List Page</Breadcrumb.Item></Link>
             <Link to="/done"><Breadcrumb.Item><FileDoneOutlined/> Done List Page</Breadcrumb.Item></Link>
             <Switch>
-              <Route exact path = "/" component={TodoList}></Route>
+              <Route exact path = "/" component={HomePage}></Route>
+              <Route exact path = "/todo" component={TodoList}></Route>
               <Route exact path = "/done" component={DoneList}></Route>
               <Route path = "*" component={NotFoundPage}></Route>
             </Switch>
