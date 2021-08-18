@@ -1,10 +1,13 @@
 import React from 'react';
+import logo from "../../../imgs/tenor.gif";
 
 
 function NotFoundPage(props) {
     return (
         <div>
-            PAGE NOT FOUND!
+            <br></br>
+            <h1>PAGE NOT FOUND!</h1>
+            <img src={logo} alt="loading..." />
         </div>
     );
 }
