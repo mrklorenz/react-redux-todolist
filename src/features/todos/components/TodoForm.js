@@ -13,8 +13,12 @@ function TodoForm(props) {
     }
 
     function handleAdd() {
-        dispatch(AddToDo(text));
-        setText("");
+        if(text === ""){
+            alert("You cannot add an empty string.");
+        }else{
+            dispatch(AddToDo(text));
+            setText("");
+        }
     }
 
     return (
