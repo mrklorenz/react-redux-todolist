@@ -10,17 +10,22 @@ function TodoItem(props) {
 
     const dispatch = useDispatch();
 
+    const todoStatus = todo.done ? "done" : "";
+
     function handleToggle(event){
-        dispatch(ToggleTodo(event.target.value));
+        event.stopPropagation();
+        dispatch(ToggleTodo(props.id));
     }
 
     function handleDeleteTodo(event){
-        dispatch(DeleteTodo(event.target.value))
+        event.stopPropagation();
+        dispatch(DeleteTodo(props.id))
     }
+    
 
     return (
-        <div onClick={handleToggle} className="toggleDiv">
-            {todo.text}
+        <div  className={`toDoFormDiv ${todoStatus}`}  onClick={handleToggle}>
+            <span className="textSpan">{todo.text}</span>
             <span className="removeSpan" onClick={handleDeleteTodo}>x</span>
         </div>
     );
