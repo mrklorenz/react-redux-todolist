@@ -3,13 +3,14 @@ import {useSelector} from 'react-redux';
 import {selectDoneItems} from "../reducers/todosSlice";
 import {List, Card} from 'antd';
 import { CheckCircleTwoTone } from '@ant-design/icons';
+import "../styles/DoneList.css";
 
 function DoneList(props) {
 
     const doneList = useSelector(selectDoneItems);
 
     return (
-        <div>
+        <div className="doneDiv">
             <br/>
             <h1>Done List</h1>
             <List grid={
