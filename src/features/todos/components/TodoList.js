@@ -7,8 +7,8 @@ function TodoList(props) {
     return (
         <div className="todoList">
             <h1>TodoList</h1>
-            <TodoGroup></TodoGroup>
             <TodoForm></TodoForm>
+            <TodoGroup></TodoGroup>
         </div>
     );
 }
