@@ -9,7 +9,7 @@ export const addToDo = (text) => {
 };
 
 export const updateToDo = (id, done) => {
-    return api.put(`/todos/${id}`, {done})
+    return api.put(`/todos/${id}`, done)
 }
 
 export const deleteToDo = (id) => {

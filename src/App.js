@@ -11,19 +11,19 @@ function App() {
   return (
     <div className="App">
       <br></br>
-        <Breadcrumb>
-          <BrowserRouter>
-            <Link to="/"><Breadcrumb.Item><HomeOutlined /> HomePage</Breadcrumb.Item></Link>
-            <Link to="/todo"><Breadcrumb.Item><DatabaseOutlined/> To do List Page</Breadcrumb.Item></Link>
-            <Link to="/done"><Breadcrumb.Item><FileDoneOutlined/> Done List Page</Breadcrumb.Item></Link>
-            <Switch>
-              <Route exact path = "/" component={HomePage}></Route>
-              <Route exact path = "/todo" component={TodoList}></Route>
-              <Route exact path = "/done" component={DoneList}></Route>
-              <Route path = "*" component={NotFoundPage}></Route>
-            </Switch>
-          </BrowserRouter>
-        </Breadcrumb>
+      <BrowserRouter>
+      <Breadcrumb>
+      <Breadcrumb.Item><Link to="/"><HomeOutlined /> HomePage</Link></Breadcrumb.Item>
+      <Breadcrumb.Item><Link to="/todo"><DatabaseOutlined/> To do List Page</Link></Breadcrumb.Item>
+      <Breadcrumb.Item> <Link to="/done"><FileDoneOutlined/> Done List Page</Link></Breadcrumb.Item>
+      </Breadcrumb>
+        <Switch>
+          <Route exact path = "/" component={HomePage}></Route>
+          <Route exact path = "/todo" component={TodoList}></Route>
+          <Route exact path = "/done" component={DoneList}></Route>
+          <Route path = "*" component={NotFoundPage}></Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
