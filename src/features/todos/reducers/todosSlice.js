@@ -12,8 +12,11 @@ const todosSlice = createSlice({
             todoAdapter.addOne(state, action.payload);
         },
         ToggleTodo(state, action) {
-            const todo = state.entities[action.payload];
-            todo.done = !todo.done;
+            console.log(action.payload);
+            todoAdapter.updateOne(state, {
+                id : action.payload,
+                changes : action.payload.updateToDo
+            })
         },
         DeleteTodo(state, action){
             todoAdapter.removeOne(state, action.payload);

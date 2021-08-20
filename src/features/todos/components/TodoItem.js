@@ -15,12 +15,10 @@ function TodoItem(props) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const[text, setText] = useState("");
 
-    const todoStatus = todo.done ? "done" : "";
-
-    const handleToggle = () => {
-        updateToDo(props.id, { done: !todo.done }).then(() => {
-            dispatch(ToggleTodo(props.id));
-        });
+    function handleToggle (){
+        updateToDo(props.id, { done: !todo.done }).then((response) => {
+            dispatch(ToggleTodo(response.data));
+        })
     };
 
     function handleDeleteTodo(event){
@@ -47,18 +45,25 @@ function TodoItem(props) {
     };
 
     function handleEditChange(event){
-        event.stopPropagation();
         setText(event.target.value);
+        event.stopPropagation();
     };
 
+    const todoStatus = todo.done ? "done" : "";
+
     return (
-        <div className={`toDoFormDiv ${todoStatus}`}  onClick={handleToggle}>
-            <span className="textSpan">{todo.text}</span>
-            <DeleteFilled className="removeSpan" onClick={handleDeleteTodo}/>
-            <EditTwoTone className="removeSpan" onClick={handleEditClick}/>
+        <div className="toDoFormDiv">
+            <div className={`textSpanDiv ${todoStatus}`} onClick={handleToggle}>
+                <span className="textSpan">{todo.text}</span>
+            </div>
+            <div className="itemButtons">
+                <EditTwoTone onClick={handleEditClick}/>
+                <DeleteFilled onClick={handleDeleteTodo}/>
+            </div>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <Input onChange={handleEditChange} value={text}/>
             </Modal>
+            {/* todo create seperate divs */}
         </div>
     );
 }
